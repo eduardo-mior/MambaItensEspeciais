@@ -60,7 +60,7 @@ public class Main extends JavaPlugin implements Listener {
 
 	private void registrarEventos() {
 		PluginManager pm = Bukkit.getServer().getPluginManager();
-		pm.registerEvents(new EntityExplode(), this);
+		pm.registerEvents(new EntityDamage(), this);
 		pm.registerEvents(new PlayerDeath(), this);
 		pm.registerEvents(new PlayerInteract(), this);
 		pm.registerEvents(new PlayerInteractInBlock(), this);
@@ -68,8 +68,14 @@ public class Main extends JavaPlugin implements Listener {
 		pm.registerEvents(new PotionSplash(), this);
 		pm.registerEvents(new ProjectileHit(), this);
 		pm.registerEvents(new ProjectileLaunch(), this);
-		
-		if (Config.OBSIDIAN_BREAKER) pm.registerEvents(new EntityDamage(), this);
+
+		if (Config.OBSIDIAN_BREAKER) {
+			if (pm.getPlugin("ObsidianBreaker") != null) {
+				pm.registerEvents(new EntityExplode(), this);
+			} else {
+				Bukkit.getConsoleSender().sendMessage("§c[ItensEspeciais] ObsidianBreaker nao encontrado, desativando addons!");
+			}
+		}
 		
 		if (Config.REALISTIC) pm.registerEvents(new BlockDamageRealistic(), this);
 		else pm.registerEvents(new BlockDamageNotRealistic(), this);

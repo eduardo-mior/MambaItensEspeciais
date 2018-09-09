@@ -5,7 +5,7 @@ import org.bukkit.configuration.file.FileConfiguration;
 
 import rush.itensespeciais.utils.ConfigManager;
 
-public class Config {
+public abstract class Config {
 
 	public static int MAX_STACK_POTION, LIMITE_PODER, COOLDOWN_TEIA, CAMADA_MINIMA, CREEPER_POWER, BOLA_POWER;
 	public static String DETECTOR_ESTA, DETECTOR_NAOESTA, PODER_INSTANTANEO_ERRO, PODER_MAXIMO_ERRO,
@@ -24,7 +24,7 @@ public class Config {
 		LIMITE_PODER = config.getInt("Poder_Maximo.LimiteMaximoDePoder");
 		COOLDOWN_TEIA = config.getInt("Armadilha.DuracaoDasTeias");
 		CAMADA_MINIMA = config.getInt("Picareta.CamadaMinima");
-		CREEPER_POWER = config.getInt("Creeper_Eletrizado.DanoDaExplosaoPorBloco");
+		CREEPER_POWER = config.getInt("Super_Creeper.DanoDaExplosaoPorBloco");
 		BOLA_POWER = config.getInt("Bola_de_Fogo.DanoDaExplosaoPorBloco");
 		DETECTOR_ESTA = mensagens.getString("Detector_De_SlimeChunk.Esta").replace('&', '§');
 		DETECTOR_NAOESTA = mensagens.getString("Detector_De_SlimeChunk.NaoEsta").replace('&', '§');
