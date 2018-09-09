@@ -23,9 +23,9 @@ public class PlayerDeath implements Listener {
 
 	private void removeItem(Player p) {
 		for (ItemStack item : p.getInventory().getContents()) {
-			if (item.isSimilar(Itens.TOTEM_DA_MORTE)) {
+			if (item != null && item.isSimilar(Itens.TOTEM_DA_MORTE)) {
 				if (item.getAmount() == 1) {
-					p.getInventory().remove(item);
+					p.getInventory().removeItem(item);
 				} else {
 					item.setAmount(item.getAmount() - 1);
 				}
