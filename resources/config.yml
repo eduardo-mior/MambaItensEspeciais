@@ -1,0 +1,190 @@
+ObsidianBreaker: true
+
+Super_Creeper:
+  Id: 383
+  Data: 50
+  Nome: "&aSuper Creeper"
+  Lore: 
+    - "&7Use para invocar um creeper"
+    - "&7eletrizado que causará uma"
+    - "&7explosão 5 de dano em blocos."
+  Glow: true
+  Flags: false
+  DanoDaExplosaoPorBloco: 5
+
+  
+###
+# Para que a bola de fogo não danique a construção você deve proteger o local!
+# Para cancelar o evento com um plugin use EntityExplodeEvent
+# No WorldGuard você pode usar a flag "ghast-fireball deny" e "build deny"
+# Exemplo: /rg flag spawn build deny
+Bola_de_Fogo:
+  Id: 385
+  Data: 0
+  Nome: "&cBola de Fogo"
+  Lore: 
+    - "&7Use este item para disparar"
+    - "&7uma poderosa bola de fogo que"
+    - "&7causará uma enorme explosão."
+  Glow: true
+  Flags: false
+  DanoDaExplosaoPorBloco: 5
+
+
+Purificador:
+  # O ID é o padrão das poções 373
+  # Escolha uma Data de uma poção arremessável
+  Id: 373
+  Data: 16422
+  Nome: "&ePurificador"
+  Lore:
+    - "&7Esta poção removerá todos os"
+    - "&7efeitos dos jogadores que"
+    - "&7forem atingidos por ela."
+  Glow: true
+  Flags: true
+
+Incinerador:
+  # O ID é o padrão das poções 373
+  # Escolha uma Data de uma poção arremessável
+  Id: 373
+  Data: 16419
+  Nome: "&eIncinerador"
+  Lore:
+    - "&7Esta poção fara com que todos os"
+    - "&7jogadores que forem atingidos por"
+    - "&7ela fiquem pegando fogo eternamente."
+  Glow: true
+  Flags: true
+
+##
+# Reset_KDR funciona apenas com MambaFactions
+# Caso precise de suporte com outro PL basta me contactar
+Reset_KDR:
+  Id: 402
+  Data: 0
+  Nome: "&eReset de KDR"
+  Lore: 
+    - "&7Ao usar este item, você tera"
+    - "&7seu KDR resetado para 0."
+  Glow: true
+  Flags: true
+
+##
+# PoderMaximo e PoderInstananeo funcionam apenas com Factions da Massive / MambaFactions
+# Caso precise de suporte com outro PL basta me contactar
+Poder_Maximo:
+  Id: 399
+  Data: 0
+  Nome: "&6+1 de Poder Máximo"
+  Lore: 
+    - "&fAtivando este item você aumenta"
+    - "&f1 ponto em seu limite de poder."
+    - ""
+    - "&f* Limite máximo de poder: 20"
+  LimiteMaximoDePoder: 20
+  Glow: true
+  Flags: false
+
+Poder_Instantaneo:
+  Id: 339
+  Data: 0
+  Nome: "&e+1 de Poder Instantâneo"
+  Lore:
+    - "&fAtivando este item você aumenta"
+    - "&f1 ponto de seu poder atual."
+  Glow: true
+  Flags: false
+
+Lancador:
+  Id: 401
+  Data: 0
+  Nome: "&eLançador"
+  Lore: 
+    - "&7Ao usar este item você sera"
+    - "&7lançado 60 blocos para cima."
+  Glow: true
+  Flags: false
+
+Reparador:
+  Id: 145
+  Data: 0
+  Nome: "&eReparador Instantâneo"
+  Lore:
+    - "&7Ao usar este item você ira"
+    - "&7reparar toda a armadura que"
+    - "&7estiver equipada no seu corpo."
+  Glow: true
+  Flags: false
+  
+Armadilha:
+  Nome: "&eArmadilha"
+  Lore:
+    - "&7Durante 20 segundos,"
+    - "&7um quadrado de teia de 3x3"
+    - "&7será formado no local onde"
+    - "&7a bola de neve atingir."
+  Glow: true
+  Flags: false
+  DuracaoDasTeias: 20 #segundos
+
+###
+# Para que o raio não danique a construção você deve proteger o local!
+# Para cancelar o evento com um plugin use LightningStrikeEvent
+# No WorldGuard você pode usar a flag "lightning deny" e "build deny"
+# Exemplo: /rg flag spawn lightning deny
+Raio_Mestre:
+  Id: 369
+  Data: 0
+  Nome: "&eRaio Mestre"
+  Lore: 
+    - "&7Ao usar este item, um raio irá"
+    - "&7cair onde você você estiver olhando."
+  Glow: true
+  Flags: false
+
+###
+# A picareta nunca ira quebrar
+# A camada minima serve para o player não quebrar o chão e cair no void
+Picareta:
+  Nome: "&bPicareta de Diamante"
+  Lore:
+    - ""
+    - "&7* Esta picareta tem o poder de quebrar bedrocks."
+  Flags: false
+  CamadaMinima: 0
+  # Para mais informações sobre a picareta realista leia o arquivo ajuda.yml É IMPORTANTE!
+  PicaretaRealista: true
+
+Totem_Da_Morte:
+  Id: 416
+  Data: 0
+  Nome: "&eTotem da Morte"
+  Lore: 
+    - "&7Caso você morra como este item no"
+    - "&7inventário você não perdera seus itens."
+  Glow: true
+  Flags: false
+
+Agrupador_De_Pocoes:
+  Id: 154
+  Data: 0
+  Nome: "&6Agrupador de poções"
+  Lore:
+    - "&7Agrupe até 9 poções consumíveis do"
+    - "&7mesmo tipo para que você tenha"
+    - "&7vantagem em suas batalhas."
+  Glow: true
+  Flags: false
+  LimiteDePocoesQuePodemSeAgrupar: 9
+
+Detector_De_SlimeChunk:
+  Id: 341
+  Data: 0
+  Nome: "&eDetector de Slime Chunk"
+  Lore:
+    - "&7Ao clicar em um bloco com este"
+    - "&7item ele informará se você está"
+    - "&7em uma Slime Chunk."
+  Glow: true
+  Flags: false

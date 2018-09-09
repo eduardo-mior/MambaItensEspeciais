@@ -1,0 +1,44 @@
+# Palavras-chave para serem usadas nos comandos:
+# console: <comando> - Executa um comando pelo console
+# player: <comando> - Executa um comando pelo player
+# mensagem: <mensagem> - Envia uma mensagem para o player
+# broadcast: <mensagem> - Envia uma mensagem broadcast
+# {player} - É trocado pelo nome do player
+
+Itens:
+  papel-vip:
+    Id: 339
+    Data: 0
+    Nome: "&aAtivar VIP Terra"
+    Lore:
+      - "&7Use este item para ativar"
+      - "&7um VIP Terra de 30 dias!"
+    Glow: true
+    Flags: false
+    Executa:
+      - "console: darvip {player} 30"
+      - "broadcast: &e{player} ativou um VIP Terra de 30 dias!"
+
+  permissao-bau:
+    Id: 54
+    Data: 0
+    Nome: "&dAtivar Echest virtual"
+    Lore:
+      - "&7Use este item para ativar"
+      - "&7o seu bau virtual (/bau)"
+    Glow: true
+    Flags: false
+    Executa:
+      - "console: pex user {player} add essentials.enderchest"
+      - "mensagem: &eVocê liberou seu enderchest virtual!"
+
+  teste:
+    Id: 1
+    Data: 5
+    Nome: "&2Item de testes"
+    Lore:
+      - "&a&lItem criado para testar o plugin!"
+    Glow: true
+    Flags: false
+    Executa:
+      - "console: say {player} usou o item de testes!"

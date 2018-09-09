@@ -1,0 +1,32 @@
+Detector_De_SlimeChunk:
+  Esta: "&aÉ SlimeChunk!"
+  NaoEsta: "&cNão é SlimeChunk!"
+
+###
+# %maximo% retorna o limite máximo de poder que ele pode ter (definido na config.yml)
+# %maxpoder% retorna o poder máximo atual do player
+# %poder% retorna o poder atual do player
+Poder_Maximo:
+  LimiteAtingido: "&cVocê já está com seu poder no máximo (Máx. %maximo%)."
+  UsadoComSucesso: "&aSeu limite de poder foi aumentado para &e%maxpoder%&a!!"
+Poder_Instantaneo:
+  LimiteAtingido: "&cVocê está com seu poder atual no máximo. (%poder%/%maxpoder%)"
+  UsadoComSucesso: "&aSeu poder atual foi aumentado para %poder%&a!!"
+
+Reset_KDR:
+  JaEstaResetado: "&cSuas kills e deaths já estão 0/0!"
+  ResetadoComSucesso: "&aKDR resetado com sucesso!"
+
+Incinerador:
+  Title: "&6&lINCINERADOR"
+  Subtitle: "&6Você foi atingido por um incinerador!"
+Purificador:
+  Title: "&c&lPURIFICADOR"
+  Subtitle: "&cVocê foi atingido por um purificador!"
+
+Comando:
+   Numero-Invalido: "&cO número %numero% não é um número valido!"
+   Player-Invalido: "&eEste player não esta online no momento ou não existe!"
+   ComandoIncorreto: "&cUse: /especial <item> [quantia] [player]"
+   ItemDesconhecido: "&cItem especial desconhecido.\n&eLista de itens especiais: %lista%"
+   ItemEnviado: "&aItem %item% givado com sucesso."

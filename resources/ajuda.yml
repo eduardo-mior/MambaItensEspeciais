@@ -1,0 +1,63 @@
+#                            +-------------------------------------------+
+#                            |                 INFORMAÇÕES               |
+#                            +-------------------------------------------+
+#    +---------------------------------------------------------------------------------------------+
+#    | 1) O ResetKDR só irão funcionar no MambaFactions, caso precise de compatibilidade com outro |
+#    |    plugin basta me contactar por um dos contantos a baixo.                                  |
+#    |                                                                                             |
+#    | 2) A picareta, o poder maximo e poder instantaneo só irão no FactionsMassive/MambaFactions  |
+#    |    caso precise de compatibilidade com outro plugin basta me contactar.                     |
+#    |                                                                                             |
+#    | 3) Para impedir que o raio lançado pelo item RAIO MESTRE destrua molduras ou danifique as   |
+#    |    construções use a flag "lightning deny" e/ou "build deny" no WorldGuard, caso você seja  |
+#    |    developer pode trabalhar com o evento LightningStrikeEvent.                              |
+#    |                                                                                             |
+#    | 4) Para impedir que a explosão da bola de fogo destrua as molduras ou danifique as          |
+#    |    construçõesuse a flag "ghast-fireball deny" e/ou "build deny" no WorldGuard, caso você   |
+#    |    seja developer pode trabalhar com o evento EntityExplodeEvent.                           |
+#    +---------------------------------------------------------------------------------------------+
+#
+#
+#                            +-------------------------------------------+
+#                            |            PICARETA REALISTA              |
+#                            +-------------------------------------------+
+#    +---------------------------------------------------------------------------------------------+
+#    | Oque é a picareta realista? O que muda se eu colocar true ou false ?                        |
+#    | A Picareta realista possui algumas diferenças para a picareta normal. RESUMO: SOM E DELAY   |
+#    | Basicamente a picareta realista executa o efeito de bloco sendo quebrado quando a bedrock é |
+#    | quebrada. Ao contrario da picareta normal que quebra a bedrock instantaneamente a picareta  |
+#    | realista também possui um pequeno "cooldown" de cerca 0,3 segundos para quebrar a bedrock   |
+#    | oque faz tudo parecer um pouco mais realista.                                               |
+#    |                                                                                             |
+#    | IMPORTANTE: Como a picareta realista possui mais funções que a picareta normal ela gera um  |
+#    | pouco mais de lag, então pense bem antes de ativar a PicareRealista                         |
+#    |                                                                                             |
+#    | DICA: Se a picareta for dificil de ser encontrada, sendo que irão existir no máximo 5 ou 10 |
+#    | dessas em todo o servidor, então pode ativar a PicaretaRealista tranquilamente, mas se a    |
+#    | picareta for algo médio ou mais ou menos facil de ser adquirido ou se o servidor estiver    |
+#    | lagando é recomendo que você deixe a picareta realista como desativada.                     |
+#    +---------------------------------------------------------------------------------------------+
+#
+#
+#                            +-------------------------------------------+
+#                            |                 CONTATOS                  |
+#                            +-------------------------------------------+
+#    +---------------------------------------------------------------------------------------------+
+#    | WhatsApp: (54) 991343192                                                                    |
+#    | Facebook: http://fb.com/eduardo.mior.3                                                      |
+#    | Twitter: https://twitter.com/CanalDaRUSH                                                    |
+#    | Skype: live:eduardo-mior                                                                    |
+#    | Discord: Eduardo Mior#5793                                                                  |
+#    | E-Mail: eduardo-mior@hotmail.com                                                            |
+#    | TeamSpeak: rush.ts3elite.com                                                                |
+#    | Spigot: https://spigotmc.org/members/mior.344828                                            |
+#    | Gamer'sBoard: https://gamersboard.com.br/profile/23586-rushyoutuber/                        |
+#    +---------------------------------------------------------------------------------------------+
+#
+#
+#                            +-------------------------------------------+
+#                            |            LISTA DE PERMISSÕES            |
+#                            +-------------------------------------------+
+#    +---------------------------------------------------------------------------------------------+
+#    | itensespecias.admin - Permissão para poder utilizar o comando /especial ou /giveitem        |
+#    +---------------------------------------------------------------------------------------------+
