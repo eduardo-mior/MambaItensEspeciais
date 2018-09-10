@@ -8,6 +8,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.Effect;
 import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.Sound;
 import org.bukkit.World;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Fireball;
@@ -19,6 +20,7 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
 import org.bukkit.scheduler.BukkitRunnable;
+import org.bukkit.scheduler.BukkitTask;
 import org.bukkit.util.Vector;
 
 import rush.itensespeciais.Main;
@@ -61,10 +63,12 @@ public class PlayerInteract extends Config implements Listener  {
 			}
 
 			if (item.isSimilar(Itens.LANCADOR)) {
-				executeLauncher(e.getPlayer());
-				removeItem(e.getPlayer());
-				e.setCancelled(true);
-				return;
+				if (e.getPlayer().getLocation().getY() < 275) {
+					executeLauncher(e.getPlayer());
+					removeItem(e.getPlayer());
+					e.setCancelled(true);
+					return;
+				}
 			}
 
 			if (item.isSimilar(Itens.RAIO_MESTRE)) {
@@ -120,7 +124,7 @@ public class PlayerInteract extends Config implements Listener  {
 	}
 
 	private void removeItem(Player p) {
-		if (p.getItemInHand().getAmount() == 1) {
+		if (p.getItemInHand().getAmount() < 2) {
 			p.setItemInHand(new ItemStack(Material.AIR));
 		} else {
 			ItemStack item = p.getItemInHand();
@@ -136,10 +140,10 @@ public class PlayerInteract extends Config implements Listener  {
 			}
 		}
 		p.updateInventory();
+		p.playSound(p.getLocation(), BIGORNA, 1, 1);
 	}
 
 	private void agroupPotions(Player p) {
-
 		PlayerInventory inv = p.getInventory();
 		HashMap<ItemStack, Integer> potions = new HashMap<>();
 
@@ -167,6 +171,7 @@ public class PlayerInteract extends Config implements Listener  {
 			potion.setAmount(amount);
 			inv.addItem(potion);
 		}
+		p.playEffect(p.getLocation(), Effect.POTION_BREAK, 0);
 	}
 
 	private void playLightning(World w, Location l) {
@@ -178,15 +183,19 @@ public class PlayerInteract extends Config implements Listener  {
 	
 	private void executeLauncher(Player p) {
 		Vector vel = p.getVelocity().setY(4.0);
-		EntityDamage.PROTECTEDS.add(p);
 		SpawnFirework.empty(p);
 		p.setVelocity(vel);
-		new BukkitRunnable() {
+		BukkitTask newTask = new BukkitRunnable() {
 			@Override
 			public void run() {
 				EntityDamage.PROTECTEDS.remove(p);
 			}
-		}.runTaskLater(Main.get(), 188L);
+		}.runTaskLater(Main.get(), 400L);
+		if (EntityDamage.PROTECTEDS.containsKey(p)) {
+			int oldTask = EntityDamage.PROTECTEDS.get(p);
+			Bukkit.getScheduler().cancelTask(oldTask);
+		}
+		EntityDamage.PROTECTEDS.put(p, newTask.getTaskId());
 	}
 
 	private void throwFireball(Player p) {

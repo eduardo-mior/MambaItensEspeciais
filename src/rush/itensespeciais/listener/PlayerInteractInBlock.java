@@ -28,7 +28,6 @@ public class PlayerInteractInBlock extends Config implements Listener {
 			if (e.getClickedBlock() == null) return;
 			
 			if(e.getItem().isSimilar(Itens.SUPER_CREEPER)) {
-				
 				Location spawn = getCorrectLocation(e.getClickedBlock().getLocation(), e.getBlockFace());
 				Creeper cc = (Creeper) spawn.getWorld().spawnEntity(spawn, EntityType.CREEPER);
 				cc.setPowered(true);
@@ -69,7 +68,7 @@ public class PlayerInteractInBlock extends Config implements Listener {
 	}
 
 	private void removeItem(Player p) {
-		if (p.getItemInHand().getAmount() == 1) {
+		if (p.getItemInHand().getAmount() < 2) {
 			p.setItemInHand(new ItemStack(Material.AIR));
 		} else {
 			ItemStack item = p.getItemInHand();

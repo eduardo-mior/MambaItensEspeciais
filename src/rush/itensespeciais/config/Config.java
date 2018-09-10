@@ -12,7 +12,7 @@ public abstract class Config {
 			PODER_INSTANTANEO_USADO, PODER_MAXIMO_USADO, RESETKDR_ERRO, RESETKDR_SUCESSO, NUMERO_INVALIDO,
 			PLAYER_INVALIDO, ESPECIAL_INCORRETO, ITEM_DESCONHECIDO, ITEM_ENVIADO, PURIFICADOR_TITLE,
 			PURIFICADOR_SUBTITLE, INCINERADOR_TITLE, INCIDERADOR_SUBTITLE;
-	public static Sound RAIO;
+	public static Sound RAIO, BIGORNA;
 	public static boolean REALISTIC, OBSIDIAN_BREAKER;
 
 	public static void loadConfig() {
@@ -45,8 +45,10 @@ public abstract class Config {
 		ITEM_ENVIADO = mensagens.getString("Comando.ItemEnviado").replace('&', '§');
 		try {
 			RAIO = Sound.valueOf("AMBIENCE_THUNDER");
+			BIGORNA = Sound.valueOf("ANVIL_USE");
 		} catch (IllegalArgumentException ex) {
 			RAIO = Sound.valueOf("ENTITY_LIGHTNING_THUNDER");
+			BIGORNA = Sound.valueOf("BLOCK_ANVIL_USE");
 		}
 	}
 

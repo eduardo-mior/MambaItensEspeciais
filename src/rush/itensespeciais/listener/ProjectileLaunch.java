@@ -13,10 +13,9 @@ public class ProjectileLaunch implements Listener {
 	@EventHandler
 	public void aoLancar(ProjectileLaunchEvent e) {
 		if (e.getEntity().getShooter() instanceof Player) {	
-		
-			if (e.getEntityType() == EntityType.SNOWBALL) {
-				Player p = (Player) e.getEntity().getShooter();
+			Player p = (Player) e.getEntity().getShooter();
 
+			if (e.getEntityType() == EntityType.SNOWBALL) {
 				if (p.getItemInHand().isSimilar(Itens.ARMADILHA)) {
 					e.getEntity().setCustomName("§bARMADILHA");
 					e.getEntity().setCustomNameVisible(true);
@@ -25,7 +24,6 @@ public class ProjectileLaunch implements Listener {
 			}
 			
 			if (e.getEntityType() == EntityType.SPLASH_POTION) {
-				Player p = (Player) e.getEntity().getShooter();
 
 				if (p.getItemInHand().isSimilar(Itens.PURIFICADOR)) {
 					e.getEntity().setCustomName("§dPURIFICADOR");

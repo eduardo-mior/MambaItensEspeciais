@@ -1,7 +1,8 @@
 package rush.itensespeciais.listener;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 
+import org.bukkit.Bukkit;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -12,15 +13,18 @@ import org.bukkit.event.entity.EntityDamageEvent.DamageCause;
 
 public class EntityDamage implements Listener {
 
-	public static ArrayList<Player> PROTECTEDS = new ArrayList<>();
+	public static HashMap<Player, Integer> PROTECTEDS = new HashMap<>();
 
 	@EventHandler(ignoreCancelled = true)
 	public void aoTomarDando(EntityDamageEvent e) {
 		if (e.getCause() == DamageCause.FALL) {
 			if (e.getEntity() instanceof Player) {
-				if (PROTECTEDS.contains(e.getEntity())) {
-					PROTECTEDS.remove(e.getEntity());
+				Player p = (Player) e.getEntity();
+				if (PROTECTEDS.containsKey(p)) {
 					e.setCancelled(true);
+					Integer task = PROTECTEDS.get(p);
+					Bukkit.getScheduler().cancelTask(task);
+					PROTECTEDS.remove(p);
 				}
 			}
 		}

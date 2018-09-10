@@ -8,7 +8,7 @@ public class PlayerKick implements Listener {
 	
 	@EventHandler
 	public void aoKickar(PlayerKickEvent e) {
-		if (EntityDamage.PROTECTEDS.contains(e.getPlayer())) {
+		if (EntityDamage.PROTECTEDS.containsKey(e.getPlayer())) {
 			e.setCancelled(true);
 		}
 	}

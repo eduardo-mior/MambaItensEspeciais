@@ -30,7 +30,7 @@ public class CommandEspeciais extends Config implements CommandExecutor {
 		}
 
 		// Pegando o item especial
-		ItemStack item = Itens.NAME_ITENS.get(nameItem);
+		ItemStack item = Itens.NAME_ITENS.get(nameItem).clone();
 
 		// Pegando a quantia
 		int quantia;
