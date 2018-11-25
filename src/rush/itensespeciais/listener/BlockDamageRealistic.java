@@ -3,6 +3,7 @@ package rush.itensespeciais.listener;
 import org.bukkit.Bukkit;
 import org.bukkit.Effect;
 import org.bukkit.Material;
+import org.bukkit.block.Block;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
@@ -17,18 +18,19 @@ public class BlockDamageRealistic extends Config implements Listener {
 	
 	@EventHandler(ignoreCancelled = true)
 	public void aoQuebrar(BlockDamageEvent e) {
-		if (e.getBlock().getType() == Material.BEDROCK) {
-			if (e.getBlock().getY() > CAMADA_MINIMA) {
+		final Block b = e.getBlock();
+		if (b.getType() == Material.BEDROCK) {
+			if (b.getY() > CAMADA_MINIMA) {
 				if (e.getItemInHand().isSimilar(Itens.PICARETA)) {
 					e.setCancelled(true);
-					BlockBreakEvent event = new BlockBreakEvent(e.getBlock(), e.getPlayer());
+					BlockBreakEvent event = new BlockBreakEvent(b, e.getPlayer());
 					Bukkit.getPluginManager().callEvent(event);
 					if (!event.isCancelled()) {
 						new BukkitRunnable() {
 							@Override
 							public void run() {
-								e.getBlock().getWorld().playEffect(e.getBlock().getLocation(), Effect.STEP_SOUND, 1);
-								e.getBlock().breakNaturally();
+								b.getWorld().playEffect(b.getLocation(), Effect.STEP_SOUND, 1);
+								b.breakNaturally();
 							}
 						}.runTaskLater(Main.get(), 7L);
 					}

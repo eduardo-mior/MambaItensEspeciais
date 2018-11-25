@@ -95,6 +95,23 @@ Poder_Instantaneo:
     - "&f1 ponto de seu poder atual."
   Glow: true
   Flags: false
+  
+##
+# Membros_Maximo funciona apenas com MambaFactions (atualizado)
+# O MambaFactions é o unico plugin que possui essa função
+# Verifique se você esta usando a versão mais atualizada do Mamba!
+Membros_Maximo:
+  Id: 399
+  Data: 0
+  Nome: "&6+1 Membro na Facção"
+  Lore: 
+    - "&fAtivando este item você aumenta 1"
+    - "&fmembro no limite de membros da facção."
+    - ""
+    - "&f* Limite máximo de membros: 15"
+  LimiteMaximoDeMembros: 15
+  Glow: true
+  Flags: false
 
 Lancador:
   Id: 401

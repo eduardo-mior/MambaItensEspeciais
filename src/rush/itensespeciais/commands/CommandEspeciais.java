@@ -14,7 +14,7 @@ import rush.itensespeciais.itens.Itens;
 public class CommandEspeciais extends Config implements CommandExecutor {
 
 	@Override
-	public boolean onCommand(CommandSender s, Command cmd, String lbl, String[] args) {
+	public boolean onCommand(CommandSender s, Command cmd, String lbl, String[] args) {				
 		
 		// Verificando se o player digitou o número de argumentos corretos
 		if (args.length > 3 || args.length < 1) {

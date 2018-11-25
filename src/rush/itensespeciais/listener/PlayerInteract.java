@@ -10,6 +10,7 @@ import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.World;
+import org.bukkit.block.Block;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Fireball;
 import org.bukkit.entity.Player;
@@ -72,16 +73,7 @@ public class PlayerInteract extends Config implements Listener  {
 			}
 
 			if (item.isSimilar(Itens.RAIO_MESTRE)) {
-				World w;
-				Location l;
-				if (e.getClickedBlock() != null) {
-					w = e.getClickedBlock().getWorld();
-					l = e.getClickedBlock().getLocation();
-				} else {
-					w = e.getPlayer().getWorld();
-					l = e.getPlayer().getTargetBlock((Set<Material>) null, 15).getLocation();
-				}
-				playLightning(w, l);
+				playLightning(e.getClickedBlock(), e.getPlayer());
 				removeItem(e.getPlayer());
 				e.setCancelled(true);
 				return;
@@ -110,6 +102,15 @@ public class PlayerInteract extends Config implements Listener  {
 				}
 				e.setCancelled(true);
 				return;		
+			}
+			
+			if (item.isSimilar(Itens.MEMBROS_MAXIMO)) {
+				if (MassiveFactions.upMaxMembers(e.getPlayer())) {
+					SpawnFirework.big(e.getPlayer());
+					removeItem(e.getPlayer());
+				}
+				e.setCancelled(true);
+				return;
 			}
 
 			if (item.isSimilar(Itens.RESET_KDR)) {
@@ -174,8 +175,12 @@ public class PlayerInteract extends Config implements Listener  {
 		p.playEffect(p.getLocation(), Effect.POTION_BREAK, 0);
 	}
 
-	private void playLightning(World w, Location l) {
-		w.strikeLightning(l);
+	private void playLightning(Block b, Player player) {
+		if (b != null) {
+			player.getWorld().strikeLightning(b.getLocation());
+		} else {
+			player.getWorld().strikeLightning(player.getTargetBlock((Set<Material>) null, 15).getLocation());
+		}
 		for (Player p : Bukkit.getOnlinePlayers()) {
 			p.playSound(p.getLocation(), RAIO, 1, 1);
 		}

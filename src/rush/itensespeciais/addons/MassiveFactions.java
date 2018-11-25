@@ -2,6 +2,7 @@ package rush.itensespeciais.addons;
 
 import org.bukkit.entity.Player;
 
+import com.massivecraft.factions.entity.Faction;
 import com.massivecraft.factions.entity.MPlayer;
 
 import rush.itensespeciais.config.Config;
@@ -11,8 +12,8 @@ public class MassiveFactions extends Config {
 	public static boolean resetKDR(Player p) {
 		MPlayer mp = MPlayer.get(p);
 		if (mp.getKills() > 0 || mp.getDeaths() > 0) {
-			mp.setKills(0D);
-			mp.setDeaths(0D);
+			mp.setKills(0);
+			mp.setDeaths(0);
 			p.sendMessage(RESETKDR_SUCESSO);
 			return true;
 		} else {
@@ -46,11 +47,31 @@ public class MassiveFactions extends Config {
 			return true;
 		}
 	}
+
+	public static boolean upMaxMembers(Player p) {
+		MPlayer mp = MPlayer.get(p);
+		Faction f = mp.getFaction();
+		int maximo = f.getMembersLimit();
+		if (maximo >= LIMITE_MEMBROS) {
+			p.sendMessage(translatedMessage(f, MEMBROS_MAXIMO_ERRO));
+			return false;
+		} else {
+			f.setMemberBoost(f.getMemberBoost() + 1);
+			p.sendMessage(translatedMessage(f, MEMBROS_MAXIMO_USADO));
+			return true;
+		}
+	}
 	
 	private static String translatedMessage(MPlayer mp, String txt) {
 		return txt.replace("%poder%", String.valueOf(mp.getPowerRounded()))
-				.replace("%maxpoder%", String.valueOf(mp.getPowerMaxRounded()))
-				.replace("%maximo%", String.valueOf(LIMITE_PODER));
+				  .replace("%maxpoder%", String.valueOf(mp.getPowerMaxRounded()))
+				  .replace("%maximoPoder%", String.valueOf(LIMITE_PODER));
+	}
+	
+	private static String translatedMessage(Faction f, String txt) {
+		return txt.replace("%membros%", String.valueOf(f.getMembersCount()))
+				  .replace("%maxmembros%", String.valueOf(f.getMembersLimit()))
+				  .replace("%maximoMembros%", String.valueOf(LIMITE_MEMBROS));
 	}
 
 }

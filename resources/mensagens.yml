@@ -3,15 +3,22 @@ Detector_De_SlimeChunk:
   NaoEsta: "&cNão é SlimeChunk!"
 
 ###
-# %maximo% retorna o limite máximo de poder que ele pode ter (definido na config.yml)
+# %maximoPoder% retorna o limite máximo de poder que ele pode ter (definido na config.yml)
 # %maxpoder% retorna o poder máximo atual do player
 # %poder% retorna o poder atual do player
+##
+# %maximoMembros% retorna o limite máximo de membros que a facção pode ter (definido na config.yml)
+# %maxmembros% retorna a o limite máximo de membros atual da facção
+# %membros% retorna a quantia de membors atual da facção
 Poder_Maximo:
-  LimiteAtingido: "&cVocê já está com seu poder no máximo (Máx. %maximo%)."
+  LimiteAtingido: "&cVocê já está com seu poder no máximo (Máx. %maximoPoder%)."
   UsadoComSucesso: "&aSeu limite de poder foi aumentado para &e%maxpoder%&a!!"
 Poder_Instantaneo:
   LimiteAtingido: "&cVocê está com seu poder atual no máximo. (%poder%/%maxpoder%)"
   UsadoComSucesso: "&aSeu poder atual foi aumentado para %poder%&a!!"
+Membros_Maximo:
+  LimiteAtingido: "&cA sua facção já está com o seu limite de membros no máximo (Máx. %maximoMembros%)."
+  UsadoComSucesso: "&aO limite de membros da facção foi aumentado para &e%maxmembros%&a!!"
 
 Reset_KDR:
   JaEstaResetado: "&cSuas kills e deaths já estão 0/0!"

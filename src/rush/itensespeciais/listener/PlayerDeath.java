@@ -14,7 +14,7 @@ public class PlayerDeath implements Listener {
 	@EventHandler(priority = EventPriority.LOWEST)
 	public void aoMorrer(PlayerDeathEvent e) {
 		for (ItemStack item : e.getDrops()) {
-			if (item.isSimilar(Itens.TOTEM_DA_MORTE)) {
+			if (item != null && item.isSimilar(Itens.TOTEM_DA_MORTE)) {
 				e.setKeepInventory(true);
 				removeItem(e.getEntity());
 				return;

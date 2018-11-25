@@ -20,7 +20,7 @@ import rush.itensespeciais.utils.ConfigManager;
 import rush.itensespeciais.utils.ReflectionUtils;
 
 @SuppressWarnings("all")
-public class Itens {
+public abstract class Itens {
 	
 	private static final FileConfiguration config = ConfigManager.getConfig("config");
 
@@ -31,6 +31,7 @@ public class Itens {
 	public static ItemStack RESET_KDR;
 	public static ItemStack PODER_MAXIMO;
 	public static ItemStack PODER_INSTANTANEO;
+	public static ItemStack MEMBROS_MAXIMO;
 	public static ItemStack LANCADOR;
 	public static ItemStack REPARADOR;
 	public static ItemStack ARMADILHA;
@@ -50,6 +51,7 @@ public class Itens {
 		buildResetKDR();
 		buildPoderMaximo();
 		buildPoderInstantaneo();
+		buildMembrosMaximo();
 		buildLancador();
 		buildReparadorInstantaneo();
 		buildArmadilha();
@@ -142,7 +144,7 @@ public class Itens {
 		PotionMeta PurificadorMeta = (PotionMeta) Purificador.getItemMeta();
 		PurificadorMeta.setDisplayName(coloredName(nomePurificador));
 		PurificadorMeta.setLore(coloredLore(lorePurificador));
-		PurificadorMeta.addCustomEffect(new PotionEffect(PotionEffectType.HEAL, 1, 1), true);
+		PurificadorMeta.addCustomEffect(new PotionEffect(PotionEffectType.WITHER, 1, 1), true);
 		if (flags) {
 			for (ItemFlag flag : ItemFlag.values()) {
 				PurificadorMeta.addItemFlags(flag);
@@ -171,7 +173,7 @@ public class Itens {
 		PotionMeta IncineradorMeta = (PotionMeta) Incinerador.getItemMeta();
 		IncineradorMeta.setDisplayName(coloredName(nomeIncinerador));
 		IncineradorMeta.setLore(coloredLore(loreIncinerador));
-		IncineradorMeta.addCustomEffect(new PotionEffect(PotionEffectType.HEAL, 1, 1), true);
+		IncineradorMeta.addCustomEffect(new PotionEffect(PotionEffectType.WITHER, 1, 1), true);
 		if (flags) {
 			for (ItemFlag flag : ItemFlag.values()) {
 				IncineradorMeta.addItemFlags(flag);
@@ -282,6 +284,39 @@ public class Itens {
 		// Setando o ItemStack
 		NAME_ITENS.put("PODER_INSTANTANEO", PoderInstantaneo);
 		PODER_INSTANTANEO = PoderInstantaneo;
+	}
+	
+	
+	// Construtor do ItemStack do MembrosMaximo
+	private static void buildMembrosMaximo() {		
+		// Pegando as configs do item
+		int idMembrosMaximo = config.getInt("Membros_Maximo.Id");
+		int dataMembrosMaximo = config.getInt("Membros_Maximo.Data");
+		String nomeMembrosMaximo = config.getString("Membros_Maximo.Nome");
+		List<String> loreMembrosMaximo = config.getStringList("Membros_Maximo.Lore");
+		boolean glow = config.getBoolean("Membros_Maximo.Glow");
+		boolean flags = config.getBoolean("Membros_Maximo.Flags");
+		
+		// Criando o ItemStack
+		ItemStack MembrosMaximo = new ItemStack(idMembrosMaximo);
+		ItemMeta MembrosMaximoMeta = MembrosMaximo.getItemMeta();
+		MembrosMaximoMeta.setDisplayName(coloredName(nomeMembrosMaximo));
+		MembrosMaximoMeta.setLore(coloredLore(loreMembrosMaximo));
+		if (glow) {
+			MembrosMaximoMeta.addEnchant(Enchantment.DURABILITY, 1, true);
+			MembrosMaximoMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+		}
+		if (flags) {
+			for (ItemFlag flag : ItemFlag.values()) {
+				MembrosMaximoMeta.addItemFlags(flag);
+			}
+		}
+		MembrosMaximo.setDurability((short) dataMembrosMaximo);
+		MembrosMaximo.setItemMeta(MembrosMaximoMeta);
+		
+		// Setando o ItemStack
+		NAME_ITENS.put("MEMBROS_MAXIMO", MembrosMaximo);
+		MEMBROS_MAXIMO = MembrosMaximo;
 	}
 	
 	
