@@ -15,6 +15,9 @@
 #    | 4) Para impedir que a explosão da bola de fogo destrua as molduras ou danifique as          |
 #    |    construçõesuse a flag "ghast-fireball deny" e/ou "build deny" no WorldGuard, caso você   |
 #    |    seja developer pode trabalhar com o evento EntityExplodeEvent.                           |
+#    |                                                                                             |
+#    | 5) Caso a picareta não funcione isso pode ser problema no Anti-Cheat / Anti-Hacker. Caso    |
+#    |    você esteja com esse problema tente ativar ou desativar a Picareta Realista e testar.    |
 #    +---------------------------------------------------------------------------------------------+
 #
 #
@@ -43,7 +46,7 @@
 #                            |                 CONTATOS                  |
 #                            +-------------------------------------------+
 #    +---------------------------------------------------------------------------------------------+
-#    | WhatsApp: (54) 991343192                                                                    |
+#    | WhatsApp: +55 (54) 991343192                                                                    |
 #    | Facebook: http://fb.com/eduardo.mior.3                                                      |
 #    | Twitter: https://twitter.com/CanalDaRUSH                                                    |
 #    | Skype: live:eduardo-mior                                                                    |

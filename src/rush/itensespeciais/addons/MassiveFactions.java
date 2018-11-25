@@ -50,6 +50,10 @@ public class MassiveFactions extends Config {
 
 	public static boolean upMaxMembers(Player p) {
 		MPlayer mp = MPlayer.get(p);
+		if (!mp.hasFaction()) {
+			p.sendMessage(ZONA_LIVRE_ERRO);
+			return false;
+		}
 		Faction f = mp.getFaction();
 		int maximo = f.getMembersLimit();
 		if (maximo >= LIMITE_MEMBROS) {

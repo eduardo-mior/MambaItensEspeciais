@@ -13,7 +13,7 @@ public abstract class Config {
 	
 	public static String 
 					  DETECTOR_ESTA, DETECTOR_NAOESTA, PODER_INSTANTANEO_ERRO, PODER_MAXIMO_ERRO, 
-					  MEMBROS_MAXIMO_ERRO, PODER_INSTANTANEO_USADO, PODER_MAXIMO_USADO, 
+					  MEMBROS_MAXIMO_ERRO, PODER_INSTANTANEO_USADO, PODER_MAXIMO_USADO, ZONA_LIVRE_ERRO,
 					  MEMBROS_MAXIMO_USADO, RESETKDR_ERRO, RESETKDR_SUCESSO, NUMERO_INVALIDO,
 					  PLAYER_INVALIDO, ESPECIAL_INCORRETO, ITEM_DESCONHECIDO, ITEM_ENVIADO, 
 					  PURIFICADOR_TITLE, PURIFICADOR_SUBTITLE, INCINERADOR_TITLE, INCIDERADOR_SUBTITLE;
@@ -41,6 +41,7 @@ public abstract class Config {
 		PODER_INSTANTANEO_USADO = mensagens.getString("Poder_Instantaneo.UsadoComSucesso").replace('&', '§');
 		PODER_MAXIMO_USADO = mensagens.getString("Poder_Maximo.UsadoComSucesso").replace('&', '§');
 		MEMBROS_MAXIMO_USADO = mensagens.getString("Membros_Maximo.UsadoComSucesso").replace('&', '§');
+		ZONA_LIVRE_ERRO = mensagens.getString("Membros_Maximo.ZonaLivreErro").replace('&', '§');
 		RESETKDR_ERRO = mensagens.getString("Reset_KDR.JaEstaResetado").replace('&', '§');
 		RESETKDR_SUCESSO = mensagens.getString("Reset_KDR.ResetadoComSucesso").replace('&', '§');
 		INCINERADOR_TITLE = mensagens.getString("Incinerador.Title").replace('&', '§');

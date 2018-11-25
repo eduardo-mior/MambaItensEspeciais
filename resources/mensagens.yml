@@ -17,6 +17,7 @@ Poder_Instantaneo:
   LimiteAtingido: "&cVocê está com seu poder atual no máximo. (%poder%/%maxpoder%)"
   UsadoComSucesso: "&aSeu poder atual foi aumentado para %poder%&a!!"
 Membros_Maximo:
+  ZonaLivreErro: "&cVocê precisa estar dentro de alguma facção para poder usar este item!!"
   LimiteAtingido: "&cA sua facção já está com o seu limite de membros no máximo (Máx. %maximoMembros%)."
   UsadoComSucesso: "&aO limite de membros da facção foi aumentado para &e%maxmembros%&a!!"
 
