@@ -586,6 +586,7 @@ public abstract class Itens {
 		DETECTOR_DE_SLIMECHUNK = DetectorDeSlimeChunk;
 	}
 	
+	
 	private static void buildNewItens() {
 		FileConfiguration nConfig = ConfigManager.getConfig("crie-novos-itens");
 		Set<String> itens = nConfig.getConfigurationSection("Itens").getKeys(false);

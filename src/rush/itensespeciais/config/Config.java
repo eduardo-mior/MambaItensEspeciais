@@ -19,12 +19,13 @@ public abstract class Config {
 					  PURIFICADOR_TITLE, PURIFICADOR_SUBTITLE, INCINERADOR_TITLE, INCIDERADOR_SUBTITLE;
 	
 	public static Sound RAIO, BIGORNA;
-	public static boolean REALISTIC, OBSIDIAN_BREAKER;
+	public static boolean REALISTIC, OBSIDIAN_BREAKER, MCMMO;
 
 	public static void loadConfig() {
 		FileConfiguration config = ConfigManager.getConfig("config");
 		FileConfiguration mensagens = ConfigManager.getConfig("mensagens");
 		REALISTIC = config.getBoolean("Picareta.PicaretaRealista");
+		MCMMO = config.getBoolean("McMMO");
 		OBSIDIAN_BREAKER = config.getBoolean("ObsidianBreaker");
 		MAX_STACK_POTION = config.getInt("Agrupador_De_Pocoes.LimiteDePocoesQuePodemSeAgrupar");
 		LIMITE_PODER = config.getInt("Poder_Maximo.LimiteMaximoDePoder");

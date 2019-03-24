@@ -63,7 +63,9 @@ public class CommandEspeciais extends Config implements CommandExecutor {
 
 		// Setando a quantia especificada e enviando o item
 		item.setAmount(quantia);
-		p.getInventory().addItem(item);
+		for(ItemStack i : p.getInventory().addItem(item).values()) {
+			p.getWorld().dropItem(p.getLocation(), i);
+		}
 		s.sendMessage(ITEM_ENVIADO.replace("%item%", nameItem).replace("%player%", p.getName()));
 		return true;
 	}

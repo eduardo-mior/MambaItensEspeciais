@@ -2,10 +2,10 @@ package rush.itensespeciais;
 
 import org.bukkit.Bukkit;
 import org.bukkit.event.HandlerList;
-import org.bukkit.event.Listener;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import rush.itensespeciais.addons.McMMO;
 import rush.itensespeciais.commands.CommandEspeciais;
 import rush.itensespeciais.config.Config;
 import rush.itensespeciais.itens.Itens;
@@ -23,7 +23,7 @@ import rush.itensespeciais.listener.PlayerDeath;
 import rush.itensespeciais.utils.ConfigManager;
 import rush.itensespeciais.utils.TitleAPI;
 
-public class Main extends JavaPlugin implements Listener {
+public class Main extends JavaPlugin {
 
 	private static Main aqui;
 
@@ -39,7 +39,7 @@ public class Main extends JavaPlugin implements Listener {
 
 	@Override
 	public void onDisable() {
-		HandlerList.unregisterAll((Listener) this);
+		HandlerList.unregisterAll(this);
 	}
 
 	private void gerarConfigs() {
@@ -74,6 +74,14 @@ public class Main extends JavaPlugin implements Listener {
 				pm.registerEvents(new EntityExplode(), this);
 			} else {
 				Bukkit.getConsoleSender().sendMessage("§c[ItensEspeciais] ObsidianBreaker nao encontrado, desativando addons!");
+			}
+		}
+
+		if (Config.MCMMO) {
+			if (pm.getPlugin("mcMMO") != null) {
+				pm.registerEvents(new McMMO(), this);
+			} else {
+				Bukkit.getConsoleSender().sendMessage("§c[ItensEspeciais] McMMO nao encontrado, desativando addons!");
 			}
 		}
 		
