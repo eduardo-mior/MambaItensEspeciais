@@ -18,6 +18,7 @@ Itens:
     Executa:
       - "console: darvip {player} 30"
       - "broadcast: &e{player} ativou um VIP Terra de 30 dias!"
+    Permissao: "permissao.usar.papelvip"
 
   permissao-bau:
     Id: 54
@@ -31,6 +32,7 @@ Itens:
     Executa:
       - "console: pex user {player} add essentials.enderchest"
       - "mensagem: &eVocê liberou seu enderchest virtual!"
+    Permissao: "permissao.usar.bau"
 
   teste:
     Id: 1
@@ -42,3 +44,4 @@ Itens:
     Flags: false
     Executa:
       - "console: say {player} usou o item de testes!"
+    Permissao: "permissao.usar.teste"

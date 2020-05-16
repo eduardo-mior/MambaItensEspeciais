@@ -16,7 +16,8 @@ public abstract class Config {
 					  MEMBROS_MAXIMO_ERRO, PODER_INSTANTANEO_USADO, PODER_MAXIMO_USADO, ZONA_LIVRE_ERRO,
 					  MEMBROS_MAXIMO_USADO, RESETKDR_ERRO, RESETKDR_SUCESSO, NUMERO_INVALIDO,
 					  PLAYER_INVALIDO, ESPECIAL_INCORRETO, ITEM_DESCONHECIDO, ITEM_ENVIADO, 
-					  PURIFICADOR_TITLE, PURIFICADOR_SUBTITLE, INCINERADOR_TITLE, INCIDERADOR_SUBTITLE;
+					  PURIFICADOR_TITLE, PURIFICADOR_SUBTITLE, INCINERADOR_TITLE, INCIDERADOR_SUBTITLE,
+					  SEM_PERMISSAO_PARA_USAR_ITEM;
 	
 	public static Sound RAIO, BIGORNA;
 	public static boolean REALISTIC, OBSIDIAN_BREAKER, MCMMO;
@@ -54,6 +55,7 @@ public abstract class Config {
 		ESPECIAL_INCORRETO = mensagens.getString("Comando.ComandoIncorreto").replace('&', '§');
 		ITEM_DESCONHECIDO = mensagens.getString("Comando.ItemDesconhecido").replace('&', '§');
 		ITEM_ENVIADO = mensagens.getString("Comando.ItemEnviado").replace('&', '§');
+		SEM_PERMISSAO_PARA_USAR_ITEM = mensagens.getString("Sem-Permissao-Para-Usar-Item").replace('&', '§');
 		try {
 			RAIO = Sound.valueOf("AMBIENCE_THUNDER");
 			BIGORNA = Sound.valueOf("ANVIL_USE");

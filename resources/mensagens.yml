@@ -38,3 +38,5 @@ Comando:
    ComandoIncorreto: "&cUse: /especial <item> [quantia] [player]"
    ItemDesconhecido: "&cItem especial desconhecido.\n&eLista de itens especiais: %lista%"
    ItemEnviado: "&aItem %item% givado com sucesso."
+
+Sem-Permissao-Para-Usar-Item: "&cVocê não tem permissão para utilizar este item."

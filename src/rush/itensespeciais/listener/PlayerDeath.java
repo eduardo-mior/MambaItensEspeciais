@@ -33,5 +33,16 @@ public class PlayerDeath implements Listener {
 				return;
 			}
 		}
+		for (ItemStack item : p.getInventory().getArmorContents()) {
+			if (item != null && item.isSimilar(Itens.TOTEM_DA_MORTE)) {
+				if (item.getAmount() < 2) {
+					p.getInventory().removeItem(item);
+				} else {
+					item.setAmount(item.getAmount() - 1);
+				}
+				return;
+			}
+		}
 	}
+	
 }

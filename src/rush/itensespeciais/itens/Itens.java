@@ -2,6 +2,7 @@ package rush.itensespeciais.itens;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.AbstractMap.SimpleEntry;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -40,7 +41,7 @@ public abstract class Itens {
 	public static ItemStack TOTEM_DA_MORTE;
 	public static ItemStack AGRUPADOR;
 	public static ItemStack DETECTOR_DE_SLIMECHUNK;
-	public static HashMap<ItemStack, List<String>> NEW_ITENS = new HashMap<>();
+	public static HashMap<ItemStack, SimpleEntry<String, List<String>>> NEW_ITENS = new HashMap<>();
 	public static HashMap<String, ItemStack> NAME_ITENS = new HashMap<>();
 
 	public static void loadItens() {
@@ -600,6 +601,7 @@ public abstract class Itens {
 			boolean glow = nConfig.getBoolean("Itens." + item + ".Glow");
 			boolean flags = nConfig.getBoolean("Itens." + item + ".Flags");
 			List<String> executa = nConfig.getStringList("Itens." + item + ".Executa");
+			String permissao = nConfig.getString("Itens." + item + ".Permissao");
 			
 			// Construindo ItemStack
 			ItemStack ItemEspecial = new ItemStack(idItem);
@@ -617,9 +619,8 @@ public abstract class Itens {
 			}
 			ItemEspecial.setDurability((short) dataItem);
 			ItemEspecial.setItemMeta(ItemEspecialMeta);
-			
 			// Adicionando o item na HashMap
-			NEW_ITENS.put(ItemEspecial, executa);
+			NEW_ITENS.put(ItemEspecial, new SimpleEntry<String, List<String>>(permissao, executa));
 			NAME_ITENS.put(item.toUpperCase(), ItemEspecial);
 		}
 	}

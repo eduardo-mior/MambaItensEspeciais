@@ -1,5 +1,6 @@
 package rush.itensespeciais.listener;
 
+import java.util.AbstractMap.SimpleEntry;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
@@ -40,8 +41,9 @@ public class PlayerInteract extends Config implements Listener  {
 			
 			for (ItemStack i : Itens.NEW_ITENS.keySet()) {
 				if (item.isSimilar(i)) {
-					dispatchCommands(e.getPlayer(), Itens.NEW_ITENS.get(i));
-					removeItem(e.getPlayer());
+					if (dispatchCommands(e.getPlayer(), Itens.NEW_ITENS.get(i))) {
+						removeItem(e.getPlayer());
+					}
 					e.setCancelled(true);
 					return;
 				}
@@ -213,32 +215,39 @@ public class PlayerInteract extends Config implements Listener  {
 		location.getWorld().playEffect(location, Effect.GHAST_SHOOT, 1);
 	}
 	
-	private void dispatchCommands(Player p, List<String> commands) {
-		for (String command : commands) {
+	private boolean dispatchCommands(Player p, SimpleEntry<String, List<String>> commands) {
+		if (commands.getKey() == null || commands.getKey().isEmpty() || p.hasPermission(commands.getKey())) {
+			for (String command : commands.getValue()) {
 
-			if (command.startsWith("console: ")) {
-				String line = command.split("console: ")[1].replace('&', '§').replace("{player}", p.getName());
-				Bukkit.dispatchCommand(Bukkit.getConsoleSender(), line);
-				continue;
-			}
+				if (command.startsWith("console: ")) {
+					String line = command.split("console: ")[1].replace('&', '§').replace("{player}", p.getName());
+					Bukkit.dispatchCommand(Bukkit.getConsoleSender(), line);
+					continue;
+				}
 
-			if (command.startsWith("player: ")) {
-				String line = command.split("player: ")[1].replace('&', '§').replace("{player}", p.getName());
-				p.chat("/" + line);
-				continue;
-			}
+				if (command.startsWith("player: ")) {
+					String line = command.split("player: ")[1].replace('&', '§').replace("{player}", p.getName());
+					p.chat("/" + line);
+					continue;
+				}
 
-			if (command.startsWith("mensagem: ")) {
-				String msg = command.split("mensagem: ")[1].replace('&', '§').replace("{player}", p.getName());
-				p.sendMessage(msg);
-				continue;
-			}
+				if (command.startsWith("mensagem: ")) {
+					String msg = command.split("mensagem: ")[1].replace('&', '§').replace("{player}", p.getName());
+					p.sendMessage(msg);
+					continue;
+				}
 
-			if (command.startsWith("broadcast: ")) {
-				String msg = command.split("broadcast: ")[1].replace('&', '§').replace("{player}", p.getName());
-				Bukkit.broadcastMessage(msg);
-				continue;
-			}
+				if (command.startsWith("broadcast: ")) {
+					String msg = command.split("broadcast: ")[1].replace('&', '§').replace("{player}", p.getName());
+					Bukkit.broadcastMessage(msg);
+					continue;
+				}
+			}	
+			return true;
+		} else {
+			p.sendMessage(Config.SEM_PERMISSAO_PARA_USAR_ITEM);
+			return false;
 		}
 	}
+	
 }
